@@ -2,460 +2,165 @@
 <html lang="es">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Club Beneficios Aeropuerto Santiago</title>
 
-<style>
+styles.css
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:"Segoe UI",sans-serif;
-    background:#050A14;
-    color:white;
-    overflow-x:hidden;
-}
-
-section{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    padding:60px 8%;
-}
-
-.hero{
-    position:relative;
-    text-align:center;
-    background:
-    linear-gradient(
-        rgba(0,0,0,.55),
-        rgba(0,0,0,.75)
-    ),
-    url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000");
-
-    background-size:cover;
-    background-position:center;
-}
-
-.hero h1{
-    font-size:clamp(3rem,8vw,7rem);
-    line-height:.95;
-    max-width:1200px;
-    margin-bottom:25px;
-}
-
-.hero p{
-    font-size:1.4rem;
-    max-width:900px;
-    opacity:.85;
-}
-
-.gold{
-    color:#E6BC68;
-}
-
-.stats{
-    background:#08111f;
-}
-
-.counter{
-    font-size:clamp(5rem,10vw,10rem);
-    font-weight:800;
-    color:#E6BC68;
-}
-
-.sub{
-    margin-top:15px;
-    font-size:1.6rem;
-    opacity:.8;
-}
-
-.story{
-    text-align:center;
-}
-
-.story h2{
-    font-size:clamp(2rem,5vw,5rem);
-    max-width:1000px;
-}
-
-.story p{
-    font-size:1.4rem;
-    margin-top:25px;
-    opacity:.7;
-}
-
-.world{
-    background:#071018;
-}
-
-.world h2{
-    font-size:clamp(2rem,5vw,5rem);
-    margin-bottom:50px;
-}
-
-.world svg{
-    width:100%;
-    max-width:1200px;
-}
-
-.route{
-    stroke:#E6BC68;
-    stroke-width:3;
-    fill:none;
-    stroke-dasharray:1000;
-    stroke-dashoffset:1000;
-    animation:draw 4s forwards;
-}
-
-@keyframes draw{
-    to{
-        stroke-dashoffset:0;
-    }
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-    width:100%;
-    max-width:1200px;
-    margin-top:50px;
-}
-
-.card{
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.1);
-    backdrop-filter:blur(20px);
-    border-radius:24px;
-    padding:35px;
-}
-
-.card h3{
-    margin-bottom:15px;
-    color:#E6BC68;
-}
-
-.phone-section{
-    background:#08111f;
-}
-
-.phone{
-    width:320px;
-    height:640px;
-    background:#111;
-    border-radius:40px;
-    padding:25px;
-    margin-top:50px;
-    border:8px solid #222;
-    transition:.3s;
-    transform-style:preserve-3d;
-}
-
-.phone:hover{
-    transform:
-    rotateY(15deg)
-    rotateX(10deg);
-}
-
-.phone-screen{
-    height:100%;
-    background:linear-gradient(
-        180deg,
-        #13233C,
-        #09121E
-    );
-
-    border-radius:25px;
-    padding:25px;
-}
-
-.badge{
-    display:inline-block;
-
-    background:#E6BC68;
-    color:black;
-
-    padding:8px 14px;
-    border-radius:20px;
-    font-weight:700;
-}
-
-.benefit{
-    margin-top:15px;
-
-    background:rgba(255,255,255,.08);
-
-    padding:14px;
-
-    border-radius:14px;
-}
-
-.closing{
-    background:black;
-    text-align:center;
-}
-
-.closing h1{
-    font-size:clamp(3rem,7vw,7rem);
-}
-
-.fade{
-    opacity:0;
-    transform:translateY(60px);
-    transition:all 1s ease;
-}
-
-.fade.visible{
-    opacity:1;
-    transform:none;
-}
-
-</style>
+<script src="https://cdnjs.cloudflare.comap/3.12.5/gsap.min.jsscript>
+<script src="https://cdnjs.cloudflare.com/p/3.12.5/ScrollTrigger.min.jsscript>
 
 </head>
 
 <body>
 
+<canvas id="radar"></canvas>
+
 <section class="hero">
 
-<div class="fade">
+    <video autoplay muted loop playsinline>
+        assets/hero.mp4
+    </video>
 
-<h1>
-El viaje no termina
-<br>
-<span class="gold">
-cuando despega el avión
-</span>
-</h1>
+    <div class="overlay"></div>
 
-<p>
-Construyendo el primer ecosistema de beneficios
-y fidelización aeroportuaria de Chile.
-</p>
+    <div class="hero-content">
 
-</div>
+        <div class="eyebrow">
+            AEROPUERTO DE SANTIAGO
+        </div>
+
+        <h1 class="hero-title">
+            El viaje no termina
+            cuando despega el avión
+        </h1>
+
+        <p>
+            Construyendo el primer ecosistema de
+            fidelización aeroportuaria de Chile
+        </p>
+
+    </div>
 
 </section>
 
 <section class="stats">
 
-<div class="fade">
+    <div class="stat">
 
-<div class="counter" id="counter">
-0
-</div>
+        <div class="counter" data-value="18000000">
+            0
+        </div>
 
-<div class="sub">
-26,5 millones de pasajeros por año
-</div>
+        <span>Pasajeros Nacionales</span>
 
-</div>
+    </div>
+
+    <div class="stat">
+
+        <div class="counter" data-value="8500000">
+            0
+        </div>
+
+        <span>Pasajeros Internacionales</span>
+
+    </div>
 
 </section>
 
 <section class="story">
 
-<div class="fade">
+    <h2>
+        Cada pasajero abandona el aeropuerto
+    </h2>
 
-<h2>
-Cada pasajero abandona el aeropuerto.
-</h2>
-
-<p>
-Y la relación con el aeropuerto termina.
-</p>
-
-</div>
+    <p>
+        Y la relación termina.
+    </p>
 
 </section>
 
 <section class="world">
 
-<div class="fade">
+    <h2>Santiago conectado al mundo</h2>
 
-<h2>
-Santiago conectado al mundo
-</h2>
+    <svg viewBox="0 0 1200 600">
 
-<svg viewBox="0 0 1200 600">
+        <path class="route"
+              d="M520 340 Q350 200 220 180"/>
 
-<path class="route"
-d="M520 330 Q350 200 220 170"/>
+        <path class="route"
+              d="M520 340 Q650 180 820 140"/>
 
-<path class="route"
-d="M520 330 Q680 170 850 140"/>
+        <path class="route"
+              d="M520 340 Q850 270 1030 240"/>
 
-<path class="route"
-d="M520 330 Q860 280 1080 240"/>
+        <path class="route"
+              d="M520 340 Q700 420 940 480"/>
 
-<path class="route"
-d="M520 330 Q780 460 1050 500"/>
+        <circle
+            cx="520"
+            cy="340"
+            r="8"
+            fill="#E0B96B"/>
 
-<circle cx="520" cy="330" r="8" fill="#E6BC68"/>
-
-</svg>
-
-</div>
+    </svg>
 
 </section>
 
-<section>
+<section class="benchmark">
 
-<h2 style="font-size:3rem">
-Benchmark Mundial
-</h2>
+    <h2>Benchmark Mundial</h2>
 
-<div class="cards">
+    <div class="cards">
 
-<div class="card">
-<h3>Extime Rewards</h3>
-<p>
-Programa aeroportuario orientado a retail,
-engagement y personalización.
-</p>
-</div>
+        <div class="card">
+            <h3>Extime Rewards</h3>
+            <p>Airport Retail Ecosystem</p>
+        </div>
 
-<div class="card">
-<h3>Heathrow Rewards</h3>
-<p>
-Acumulación y canje de puntos
-en el ecosistema Heathrow.
-</p>
-</div>
+        <div class="card">
+            <h3>Heathrow Rewards</h3>
+            <p>Earn & Burn Program</p>
+        </div>
 
-<div class="card">
-<h3>Changi Rewards</h3>
-<p>
-Club omnicanal conectado con experiencias,
-compras y servicios.
-</p>
-</div>
+        <div class="card">
+            <h3>Changi Rewards</h3>
+            <p>Omnichannel Loyalty Platform</p>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 <section class="phone-section">
 
-<h2 style="font-size:3rem">
-Club Beneficios
-</h2>
+    <h2>Club Beneficios</h2>
 
-<div class="phone">
+    <div id="phone">
 
-<div class="phone-screen">
+        assets/phone.png
 
-<div class="badge">
-Nivel Gold
-</div>
-
-<h2 style="margin-top:20px">
-Hola Ricardo
-</h2>
-
-<div class="benefit">
-🅿 Parking -20%
-</div>
-
-<div class="benefit">
-🍽 Restaurante 2x1
-</div>
-
-<div class="benefit">
-✈ Acceso Lounge
-</div>
-
-<div class="benefit">
-🚗 Rent a Car
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 <section class="closing">
 
-<div class="fade">
+    <h1>
+        El aeropuerto ya no es un destino
+    </h1>
 
-<h1>
-El aeropuerto ya no es un destino.
-</h1>
-
-<h1 class="gold">
-Es una plataforma.
-</h1>
-
-</div>
+    <h1 class="gold">
+        Es una plataforma
+    </h1>
 
 </section>
 
-<script>
-
-const observer =
-new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("visible");
-
-}
-
-});
-
-});
-
-document
-.querySelectorAll(".fade")
-.forEach(el=>observer.observe(el));
-
-const counter =
-document.getElementById("counter");
-
-let current = 0;
-
-const target = 26500000;
-
-function runCounter(){
-
-current += target/180;
-
-if(current < target){
-
-counter.innerHTML =
-Math.floor(current)
-.toLocaleString("es-CL");
-
-requestAnimationFrame(runCounter);
-
-}else{
-
-counter.innerHTML =
-target.toLocaleString("es-CL");
-
-}
-
-}
-
-setTimeout(runCounter,500);
-
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
