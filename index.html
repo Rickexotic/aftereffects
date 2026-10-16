@@ -8,10 +8,10 @@
 
 <title>Club Beneficios Aeropuerto Santiago</title>
 
-styles.css
+<link rel="stylesheet" href="styles.css">
 
-<script src="https://cdnjs.cloudflare.comap/3.12.5/gsap.min.jsscript>
-<script src="https://cdnjs.cloudflare.com/p/3.12.5/ScrollTrigger.min.jsscript>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 </head>
 
@@ -19,26 +19,26 @@ styles.css
 
 <canvas id="radar"></canvas>
 
-<section class="hero">
+<section class="hero" data-motion="hero">
 
-    <video autoplay muted loop playsinline>
-        assets/hero.mp4
+    <video data-motion="hero-bg" autoplay muted loop playsinline>
+        <source src="assets/hero.mp4" type="video/mp4">
     </video>
 
     <div class="overlay"></div>
 
     <div class="hero-content">
 
-        <div class="eyebrow">
+        <div class="eyebrow" data-motion="hero-item">
             AEROPUERTO DE SANTIAGO
         </div>
 
-        <h1 class="hero-title">
+        <h1 class="hero-title" data-motion="hero-item">
             El viaje no termina
             cuando despega el avión
         </h1>
 
-        <p>
+        <p data-motion="hero-item">
             Construyendo el primer ecosistema de
             fidelización aeroportuaria de Chile
         </p>
@@ -49,20 +49,20 @@ styles.css
 
 <section class="stats">
 
-    <div class="stat">
+    <div class="stat" data-motion="stat">
 
         <div class="counter" data-value="18000000">
-            0
+            18.000.000
         </div>
 
         <span>Pasajeros Nacionales</span>
 
     </div>
 
-    <div class="stat">
+    <div class="stat" data-motion="stat">
 
         <div class="counter" data-value="8500000">
-            0
+            8.500.000
         </div>
 
         <span>Pasajeros Internacionales</span>
@@ -117,17 +117,17 @@ styles.css
 
     <div class="cards">
 
-        <div class="card">
+        <div class="card" data-motion="card">
             <h3>Extime Rewards</h3>
             <p>Airport Retail Ecosystem</p>
         </div>
 
-        <div class="card">
+        <div class="card" data-motion="card">
             <h3>Heathrow Rewards</h3>
             <p>Earn & Burn Program</p>
         </div>
 
-        <div class="card">
+        <div class="card" data-motion="card">
             <h3>Changi Rewards</h3>
             <p>Omnichannel Loyalty Platform</p>
         </div>
@@ -142,7 +142,7 @@ styles.css
 
     <div id="phone">
 
-        assets/phone.png
+        <img src="assets/phone.png" alt="Club Beneficios">
 
     </div>
 
@@ -160,7 +160,7 @@ styles.css
 
 </section>
 
-<script src="app.js"></script>
+<script defer src="app.js"></script>
 
 </body>
 </html>

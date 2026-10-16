@@ -150,7 +150,27 @@ section{
     stroke-width:3;
 
     stroke-dasharray:1200;
+    stroke-dashoffset:0;
+}
+
+/* Routes are hidden only when the motion system is active */
+.motion-ready .route{
     stroke-dashoffset:1200;
+}
+
+/* MICROINTERACTIONS (transform/opacity only) */
+.card{
+    transition:border-color .4s,box-shadow .4s;
+    will-change:transform;
+}
+
+.card:hover{
+    border-color:rgba(224,185,107,.5);
+    box-shadow:0 20px 50px rgba(224,185,107,.12);
+}
+
+@media(prefers-reduced-motion:reduce){
+    .card{transition:none}
 }
 
 .benchmark{
