@@ -271,3 +271,39 @@ section{
         font-size:2.5rem;
     }
 }
+
+/* AUTO SLIDES (active only when JS adds .slides-ready; otherwise plain grid) */
+.cards.slides-ready{
+    grid-template-columns:minmax(0,560px);
+    justify-content:center;
+    touch-action:pan-y;
+    outline-offset:6px;
+}
+
+.cards.slides-ready .card{
+    grid-area:1/1;
+}
+
+.slide-dots{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:24px;
+}
+
+.slide-dot{
+    width:12px;
+    height:12px;
+    padding:0;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    background:transparent;
+    cursor:pointer;
+    transition:background .3s,transform .3s;
+}
+
+.slide-dot:hover{transform:scale(1.2)}
+
+.slide-dot.is-active{background:var(--gold)}
+
+.slide-dot:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
