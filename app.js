@@ -1,188 +1,143 @@
 const scenes = document.querySelectorAll(".scene");
 
-function showScene(index){
+let currentScene = 0;
 
-    scenes.forEach(scene=>{
+/* =====================================
+   MOSTRAR ESCENA
+===================================== */
+
+function showScene(index) {
+
+    scenes.forEach(scene => {
         scene.classList.remove("active");
     });
 
     scenes[index].classList.add("active");
 
     runAnimation(index);
-
 }
 
-/* ======================
-   CONTADOR
-====================== */
+/* =====================================
+   CONTADORES
+===================================== */
 
-function animateCounter(element,target){
+function animateCounter(element, target) {
 
     element.textContent = "0";
 
-    let counter = {
-        value:0
+    const counter = {
+        value: 0
     };
 
-    gsap.to(counter,{
-        value:target,
-        duration:2.5,
-        ease:"power2.out",
+    gsap.to(counter, {
+        value: target,
+        duration: 2,
+        ease: "power2.out",
 
-        onUpdate(){
-
+        onUpdate: () => {
             element.textContent =
                 Math.floor(counter.value)
                 .toLocaleString("es-CL");
-
         }
     });
-
 }
 
-/* ======================
-   ESCENAS
-====================== */
+/* =====================================
+   ANIMACIONES POR ESCENA
+===================================== */
 
-function runAnimation(index){
+function runAnimation(index) {
 
-*   switch(index){
+    switch (index) {
 
-        case 0:*
-            gsap.fromTo(
-        *       ".hero-video",
-            *   {
-                    scale:1
- *              },
-                {*                    scale:1.08,
-  *                 duration:3.5,
-   *                ease:"none"
-      *         }
-            );
+        case 0:
 
-       *    gsap.from("#scene1 h1",{
-     *          opacity:0,
-             *  y:50,
-                duration:.*
+            gsap.from("#scene1 h1", {
+                opacity: 0,
+                y: 40,
+                duration: 0.8
             });
 
-            gsap*from("#scene1 p",{
-               *opacity:0,
-                y:20,
- *              delay:.2,
-          *     duration:.8
+            gsap.from("#scene1 p", {
+                opacity: 0,
+                y: 20,
+                duration: 0.8,
+                delay: 0.2
             });
 
-*           break;
+            const heroVideo = document.querySelector(".hero-video");
 
-        case 1:*
-            animateCounter(
-     *          document.getElementById(*counterNacional"),
-               *18000000
-            );
+            if (heroVideo) {
+                gsap.fromTo(
+                    heroVideo,
+                    {
+                        scale: 1
+                    },
+                    {
+                        scale: 1.08,
+                        duration: 3,
+                        ease: "none"
+                    }
+                );
+            }
 
-         *  animateCounter(
-                *ocument.getElementById("counterInt*rnacional"),
-                11000*00
-            );
+            break;
 
-            gsa*.from("#scene2",{
-                *pacity:0,
-                duration*.6
-            });
+        case 1:
 
-            br*ak;
+            const counterNacional =
+                document.getElementById("counterNacional");
+
+            const counterInternacional =
+                document.getElementById("counterInternacional");
+
+            if (counterNacional) {
+                animateCounter(counterNacional, 18000000);
+            }
+
+            if (counterInternacional) {
+                animateCounter(counterInternacional, 11000000);
+            }
+
+            break;
 
         case 2:
 
-            *sap.fromTo(
-                ".worl*-map",
-                {
-         *          scale:1.08,
-            *       x:-30
-                },
-  *             {
-                   *scale:1,
-                    x:0,
-*                   duration:3,
-   *                ease:"power1.out"
-*               }
-            );
-
- *          gsap.from(".overlay-text*,{
-                opacity:0,
-    *           y:40,
-                d*ration:.8
+            gsap.from(".overlay-text", {
+                opacity: 0,
+                y: 40,
+                duration: 0.8
             });
 
-       *    break;
+            const worldMap =
+                document.querySelector(".world-map");
+
+            if (worldMap) {
+
+                gsap.fromTo(
+                    worldMap,
+                    {
+                        scale: 1.08,
+                        x: -20
+                    },
+                    {
+                        scale: 1,
+                        x: 0,
+                        duration: 3,
+                        ease: "power1.out"
+                    }
+                );
+
+            }
+
+            break;
 
         case 3:
 
-            gsap.from("#scene4 h1",{
-                opacity:0,
-                y:50,
-                duration:1
+            gsap.from("#scene4 h1", {
+                opacity: 0,
+                y: 50,
+                duration: 1
             });
 
-            break;
-
-        case 4:
-
-            gsap.from("#scene5 h1",{
-                opacity:0,
-                y:50,
-                duration:.8
-            });
-
-            gsap.from("#scene5 h2",{
-                opacity:0,
-                y:30,
-                duration:.8,
-                delay:.25
-            });
-
-            break;
-    }
-}
-
-/* ======================
-   INICIO
-====================== */
-
-showScene(0);
-
-/* ======================
-   TIMELINE
-====================== */
-
-const master = gsap.timeline({
-    repeat:-1
-});
-
-master
-
-.to({},{
-    duration:3.5,
-    onComplete:()=>showScene(1)
-})
-
-.to({},{
-    duration:3.5,
-    onComplete:()=>showScene(2)
-})
-
-.to({},{
-    duration:3.5,
-    onComplete:()=>showScene(3)
-})
-
-.to({},{
-    duration:3.5,
-    onComplete:()=>showScene(4)
-})
-
-.to({},{
-    duration:3.5,
-    onComplete:()=>showScene(0)
-});
+            break
