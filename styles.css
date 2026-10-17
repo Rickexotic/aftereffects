@@ -10,20 +10,16 @@ body{
     height:100%;
     overflow:hidden;
     font-family:"Segoe UI",sans-serif;
-    background:#010204;
+    background:#050608;
 }
 
 #presentation{
-    position:relative;
     width:100vw;
     height:100vh;
+    position:relative;
 }
 
-/* ==========================
-   ESCENAS
-========================== */
-
-.scene{
+.slide{
     position:absolute;
     inset:0;
 
@@ -35,81 +31,16 @@ body{
     visibility:hidden;
 
     transition:
-        opacity .6s ease,
-        visibility .6s ease;
+        opacity .8s ease,
+        visibility .8s ease;
 
-    background:
-        radial-gradient(
-            circle at center,
-            #08111d 0%,
-            #04070d 50%,
-            #010204 100%
-        );
+    overflow:hidden;
 }
 
-.scene.active{
+.slide.active{
     opacity:1;
     visibility:visible;
 }
-
-/* ==========================
-   CONTENIDO
-========================== */
-
-.content{
-    position:relative;
-    z-index:5;
-
-    width:85%;
-    max-width:1400px;
-
-    text-align:center;
-}
-
-h1{
-    color:white;
-
-    font-size:
-        clamp(42px,5vw,80px);
-
-    font-weight:700;
-
-    line-height:1.15;
-
-    text-shadow:
-        0 0 8px rgba(0,180,255,.25);
-}
-
-h2{
-    margin-top:20px;
-
-    color:#d7ecff;
-
-    font-size:
-        clamp(26px,3vw,50px);
-
-    font-weight:300;
-
-    letter-spacing:3px;
-
-    text-shadow:
-        0 0 6px rgba(0,180,255,.20);
-}
-
-p{
-    margin-top:20px;
-
-    color:#d8dde5;
-
-    font-size:
-        clamp(20px,2vw,32px);
-
-    font-weight:300;
-}
-
-/* ==========================
-   VIDEO HERO
-========================== */
 
 .hero-video{
     position:absolute;
@@ -121,74 +52,10 @@ p{
     object-fit:cover;
 
     opacity:.18;
-
-    filter:
-        brightness(.55)
-        contrast(1.1)
-        saturate(.7);
-
-    transform:scale(1);
 }
 
-#scene1::after{
-    content:"";
+.background-image{
 
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.45),
-            rgba(0,0,0,.55)
-        );
-}
-
-/* ==========================
-   CONTADORES
-========================== */
-
-.counter-wrapper{
-    display:flex;
-    justify-content:center;
-    gap:120px;
-}
-
-.counter-block{
-    text-align:center;
-}
-
-.counter{
-    color:#e5eef8;
-
-    font-weight:700;
-
-    font-size:
-        clamp(60px,7vw,110px);
-
-    text-shadow:
-        0 0 10px rgba(0,180,255,.18);
-}
-
-.counter-block span{
-
-    display:block;
-
-    margin-top:15px;
-
-    color:#c7d3df;
-
-    font-size:24px;
-}
-
-/* ==========================
-   MAPA
-========================== */
-
-.image-scene{
-    overflow:hidden;
-}
-
-.world-map{
     position:absolute;
     inset:0;
 
@@ -197,15 +64,10 @@ p{
 
     object-fit:cover;
 
-    filter:
-        brightness(.45)
-        contrast(1.15)
-        saturate(.9);
-
-    transform:scale(1);
+    opacity:.35;
 }
 
-.image-scene::before{
+.slide::after{
 
     content:"";
 
@@ -213,69 +75,97 @@ p{
     inset:0;
 
     background:
-        radial-gradient(
-            rgba(0,0,0,.05),
+        linear-gradient(
+            rgba(0,0,0,.55),
             rgba(0,0,0,.75)
         );
-
-    z-index:1;
 }
 
-.overlay-text{
-
+.content{
     position:relative;
-
     z-index:5;
 
-    font-weight:700;
+    width:85%;
+    max-width:1200px;
+
+    text-align:center;
+}
+
+h1{
 
     color:white;
 
     font-size:
-        clamp(42px,5vw,76px);
+        clamp(40px,6vw,90px);
 
-    text-align:center;
+    line-height:1.15;
 
-    text-shadow:
-        0 0 10px rgba(0,180,255,.18);
+    font-weight:700;
 }
 
-/* ==========================
-   ESCENA 4
-========================== */
+h2{
 
-#scene4 h1{
-    max-width:1200px;
+    margin-top:20px;
 
-    margin:auto;
+    color:#89cfff;
 
     font-size:
-        clamp(38px,4vw,70px);
+        clamp(24px,3vw,50px);
 
-    line-height:1.2;
+    font-weight:300;
 }
 
-/* ==========================
-   MOBILE
-========================== */
+p{
+
+    margin-top:20px;
+
+    color:#d0d7dd;
+
+    font-size:
+        clamp(20px,2vw,32px);
+
+    font-weight:300;
+}
+
+.counter-box{
+    margin-bottom:50px;
+}
+
+.number{
+
+    color:white;
+
+    font-size:
+        clamp(50px,8vw,120px);
+
+    font-weight:700;
+}
+
+.label{
+
+    color:#b7c3cd;
+
+    margin-top:10px;
+
+    font-size:24px;
+}
 
 @media(max-width:768px){
 
-    .counter-wrapper{
-        flex-direction:column;
-        gap:50px;
-    }
-
     h1{
         font-size:42px;
+    }
+
+    h2{
+        font-size:28px;
     }
 
     p{
         font-size:20px;
     }
 
-    .overlay-text{
-        padding:20px;
+    .number{
+        font-size:58px;
     }
 
 }
