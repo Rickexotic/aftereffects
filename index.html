@@ -1,81 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Aeropuerto de Santiago</title>
 
-    styles.css
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
 </head>
+
 <body>
 
 <div id="presentation">
 
-    <!-- Slide 1 -->
-    <section class="slide active">
+    <!-- ESCENA 1 -->
 
-        <video autoplay muted loop playsinline class="hero-video">
+    <section class="scene active" id="scene1">
+
+        <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline>
+
             assets/hero.mp4
+
         </video>
 
-        <div class="overlay"></div>
-
         <div class="content">
+
             <h1>AEROPUERTO DE SANTIAGO</h1>
-            <p>El viaje no termina cuando despega el avión</p>
+
+            <p>
+                El viaje no termina cuando despega el avión
+            </p>
+
         </div>
 
     </section>
 
-    <!-- Slide 2 -->
-    <section class="slide">
+    <!-- ESCENA 2 -->
+
+    <section class="scene" id="scene2">
 
         <div class="content">
 
-            <div class="metric">
-                <div class="value">18.000.000+</div>
-                <div class="label">Pasajeros Nacionales</div>
-            </div>
+            <div class="counter-wrapper">
 
-            <div class="metric">
-                <div class="value">11.000.000+</div>
-                <div class="label">Pasajeros Internacionales</div>
+                <div class="counter-block">
+
+                    <div id="counterNacional" class="counter">0</div>
+
+                    <span>Pasajeros Nacionales</span>
+
+                </div>
+
+                <div class="counter-block">
+
+                    <div id="counterInternacional" class="counter">0</div>
+
+                    <span>Pasajeros Internacionales</span>
+
+                </div>
+
             </div>
 
         </div>
 
     </section>
 
-    <!-- Slide 3 -->
-    <section class="slide">
+    <!-- ESCENA 3 -->
+
+    <section class="scene image-scene" id="scene3">
 
         assets/vuelos2.png
 
-        <div class="overlay"></div>
+        <div class="overlay-text">
 
-        <div class="content">
-            <h1>Santiago conectado al mundo</h1>
+            Santiago conectado al mundo
+
         </div>
 
     </section>
 
-    <!-- Slide 4 -->
-    <section class="slide">
+    <!-- ESCENA 4 -->
+
+    <section class="scene" id="scene4">
 
         <div class="content">
+
             <h1>
                 Construyendo el primer ecosistema de fidelización aeroportuaria de Chile
             </h1>
+
         </div>
 
     </section>
 
-    <!-- Slide 5 -->
-    <section class="slide">
+    <!-- ESCENA 5 -->
+
+    <section class="scene" id="scene5">
 
         <div class="content">
-            <h1>El aeropuerto ya no es un destino</h1>
-            <h2>Es una plataforma</h2>
+
+            <h1>
+                El aeropuerto ya no es un destino
+            </h1>
+
+            <h2>
+                Es una plataforma
+            </h2>
+
         </div>
 
     </section>
