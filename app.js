@@ -21,7 +21,7 @@ function animateCounter(element,target){
 
     gsap.to(counter,{
         value:target,
-        duration:1.8,
+        duration:1.2,
         ease:"power2.out",
 
         onUpdate(){
@@ -43,18 +43,7 @@ function runAnimation(index){
 
         case 0:
 
-            gsap.from("#scene1 h1",{
-                y:120,
-                opacity:0,
-                duration:.8
-            });
-
-            gsap.from("#scene1 p",{
-                y:60,
-                opacity:0,
-                delay:.4,
-                duration:1,
-            });
+            // entrada lateral por CSS
 
             break;
 
@@ -80,47 +69,25 @@ function runAnimation(index){
             gsap.fromTo(
                 ".world-map",
                 {
-                    scale:1.15
+                    scale:1.1
                 },
                 {
                     scale:1,
-                    duration:1,
+                    duration:.6,
                     ease:"power1.out"
                 }
             );
 
-            gsap.from(".overlay-text",{
-                y:50,
-                opacity:0,
-                duration:1,
-            });
 
             break;
 
         case 3:
 
-            gsap.from("#scene4 h1",{
-                scale:.8,
-                opacity:0,
-                duration:1,
-            });
 
             break;
 
         case 4:
 
-            gsap.from("#scene5 h1",{
-                y:80,
-                opacity:0,
-                duration:1,
-            });
-
-            gsap.from("#scene5 h2",{
-                scale:.7,
-                opacity:0,
-                delay:.4,
-                duration:.8
-            });
 
             break;
 
@@ -137,26 +104,26 @@ const timeline = gsap.timeline({
 timeline
 
 .to({},{
-    duration:2.2,
+    duration:1.8,
     onComplete:()=>showScene(1)
 })
 
 .to({},{
-    duration:2.2,
+    duration:1.8,
     onComplete:()=>showScene(2)
 })
 
 .to({},{
-    duration:2.2,
+    duration:1.8,
     onComplete:()=>showScene(3)
 })
 
 .to({},{
-    duration:2.2,
+    duration:1.8,
     onComplete:()=>showScene(4)
 })
 
 .to({},{
-    duration:2.2,
+    duration:1.8,
     onComplete:()=>showScene(0)
 });
