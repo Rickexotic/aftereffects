@@ -1,127 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Aeropuerto de Santiago</title>
 
-    <link rel="stylesheet" href="styles.css">
+    styles.css
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-</head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.jsd>
 
 <body>
 
-<div id="presentation">
+    <div id="presentation">
 
-    <!-- ESCENA 1 -->
+        <!-- ESCENA 1 -->
 
-    <section class="scene active" id="scene1">
+        <section class="scene active" id="scene1">
 
-        <video
-            class="hero-video"
-            autoplay
-            muted
-            loop
-            playsinline>
+            <video
+                class="hero-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                src="assets/hero.mp4">
+            </video>
 
-            assets/hero.mp4
+            <div class="content">
 
-        </video>
+                <h1>AEROPUERTO DE SANTIAGO</h1>
 
-        <div class="content">
+                <p>
+                    El id="scene2">
 
-            <h1>AEROPUERTO DE SANTIAGO</h1>
+            <div class="content">
 
-            <p>
-                El viaje no termina cuando despega el avión
-            </p>
+                <div class="counter-wrapper">
 
-        </div>
+                    <div class="counter-block">
+                        <div id="counterNacional" class="counter">0</div>
+                        <span>Pasajeros Nacionales</span>
+                    </div>
 
-    </section>
-
-    <!-- ESCENA 2 -->
-
-    <section class="scene" id="scene2">
-
-        <div class="content">
-
-            <div class="counter-wrapper">
-
-                <div class="counter-block">
-
-                    <div id="counterNacional" class="counter">0</div>
-
-                    <span>Pasajeros Nacionales</span>
-
-                </div>
-
-                <div class="counter-block">
-
-                    <div id="counterInternacional" class="counter">0</div>
-
-                    <span>Pasajeros Internacionales</span>
+                    <div class="counter-block">
+                        <div id="counterInternacional" class="counter">0</div>
+                        <span>Pasajeros Internacionales</span>
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+        <!-- ESCENA 3 -->
 
-    <!-- ESCENA 3 -->
+        <section class="scene image-scene" id="scene3">
 
-    <section class="scene image-scene" id="scene3">
+            assets/vuelos2.png
 
-        <img
-            src="      <div class="overlay-text">
+            <div class="overlay-text">
+                Santiago conectado al mundo
+            </div>
 
-            Santiago conectado al mundo
+        </section>
 
-        </div>
+        <!-- ESCENA 4 -->
 
-    </section>
+        <section class="scene" id="scene4">
 
-    <!-- ESCENA 4 -->
+            <div class="content">
 
-    <section class="scene" id="scene4">
+                <h1>
+                    Construyendo el primer ecosistema de fidelización aeroportuaria de Chile
+                </h1>
 
-        <div class="content">
+            </div>
 
-            <h1>
-                Construyendo el primer ecosistema de fidelización aeroportuaria de Chile
-            </h1>
+        </section>
 
-        </div>
+        <!-- ESCENA 5 -->
 
-    </section>
+        <section class="scene" id="scene5">
 
-    <!-- ESCENA 5 -->
+            <div class="content">
 
-    <section class="scene" id="scene5">
+                <h1>
+                    El aeropuerto ya no es un destino
+                </h1>
 
-        <div class="content">
+                <h2>
+                    Es una plataforma
+                </h2>
 
-            <h1>
-                El aeropuerto ya no es un destino
-            </h1>
+            </div>
 
-            <h2>
-                Es una plataforma
-            </h2>
+        </section>
 
-        </div>
+    </div>
 
-    </section>
-
-</div>
-
-<script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
+
 </html>
