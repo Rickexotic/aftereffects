@@ -43,6 +43,50 @@ function animateCounter(element,target){
 
 }
 
+function splitWords(root){
+
+    let i = 0;
+
+    function walk(node){
+
+        Array.from(node.childNodes).forEach(child=>{
+
+            if(child.nodeType === Node.TEXT_NODE){
+
+                const frag = document.createDocumentFragment();
+
+                child.textContent.split(/(\s+)/).forEach(part=>{
+
+                    if(!part){ return; }
+
+                    if(/^\s+$/.test(part)){
+                        frag.appendChild(document.createTextNode(" "));
+                        return;
+                    }
+
+                    const w = document.createElement("span");
+                    w.className = "word";
+                    w.style.setProperty("--i", i++);
+                    w.textContent = part;
+                    frag.appendChild(w);
+
+                });
+
+                child.replaceWith(frag);
+
+            }else if(child.nodeType === Node.ELEMENT_NODE){
+                walk(child);
+            }
+
+        });
+
+    }
+
+    walk(root);
+}
+
+document.querySelectorAll('[data-reveal="words"]').forEach(splitWords);
+
 function runAnimation(index){
 
     
