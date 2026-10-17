@@ -1,166 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Club Beneficios Aeropuerto Santiago</title>
+<title>Aeropuerto de Santiago Story</title>
 
-<link rel="stylesheet" href="styles.css">
+<linktyle.css
 
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+<script src="https://cdnjsom/ajax/libs/gsap/3.12.5/gsap.min.jsscript>
 </head>
 
 <body>
 
-<canvas id="radar"></canvas>
+<div id="presentation">
 
-<section class="hero" data-motion="hero">
+    <!-- SCENE 1 -->
+    <section class="scene active" id="scene1">
+        <div class="content">
+            <h1>AEROPUERTO DE SANTIAGO</h1>
+            <p>El viaje no termina cuando despega el avión</p>
+        </div>
+    </section>
 
-    <video data-motion="hero-bg" autoplay muted loop playsinline>
-        <source src="assets/hero.mp4" type="video/mp4">
-    </video>
+    <!-- SCENE 2 -->
+    <section class="scene" id="scene2">
+        <div class="content">
+            <div class="counter-wrapper">
 
-    <div class="overlay"></div>
+                <div class="counter-block">
+                    <div id="counterNacional" class="counter">0</div>
+                    <span>Pasajeros Nacionales</span>
+                </div>
 
-    <div class="hero-content">
+                <div class="counter-block">
+                    <div id="counterInternacional" class="counter">0</div>
+                    <span>Pasajeros Internacionales</span>
+                </div>
 
-        <div class="eyebrow" data-motion="hero-item">
-            AEROPUERTO DE SANTIAGO
+            </div>
+        </div>
+    </section>
+
+    <!-- SCENE 3 -->
+    <section class="scene image-scene" id="scene3">
+
+        assets/vuelos2.png
+
+        <div class="overlay-text">
+            Santiago conectado al mundo
         </div>
 
-        <h1 class="hero-title" data-motion="hero-item">
-            El viaje no termina
-            cuando despega el avión
-        </h1>
+    </section>
 
-        <p data-motion="hero-item">
-            Construyendo el primer ecosistema de
-            fidelización aeroportuaria de Chile
-        </p>
-
-    </div>
-
-</section>
-
-<section class="stats">
-
-    <div class="stat" data-motion="stat">
-
-        <div class="counter" data-value="18000000">
-            18.000.000
+    <!-- SCENE 4 -->
+    <section class="scene" id="scene4">
+        <div class="content">
+            <h1>
+                Construyendo el primer ecosistema de fidelización aeroportuaria de Chile
+            </h1>
         </div>
+    </section>
 
-        <span>Pasajeros Nacionales</span>
+    <!-- SCENE 5 -->
+    <section class="scene" id="scene5">
+        <div class="content">
+            <h1>El aeropuerto ya no es un destino</h1>
 
-    </div>
-
-    <div class="stat" data-motion="stat">
-
-        <div class="counter" data-value="8500000">
-            8.500.000
+            <h2>Es una plataforma</h2>
         </div>
+    </section>
 
-        <span>Pasajeros Internacionales</span>
+</div>
 
-    </div>
-
-</section>
-
-<section class="story">
-
-    <h2>
-        Cada pasajero abandona el aeropuerto
-    </h2>
-
-    <p>
-        Y la relación termina.
-    </p>
-
-</section>
-
-<section class="world">
-
-    <h2>Santiago conectado al mundo</h2>
-
-    <svg viewBox="0 0 1200 600">
-
-        <path class="route"
-              d="M520 340 Q350 200 220 180"/>
-
-        <path class="route"
-              d="M520 340 Q650 180 820 140"/>
-
-        <path class="route"
-              d="M520 340 Q850 270 1030 240"/>
-
-        <path class="route"
-              d="M520 340 Q700 420 940 480"/>
-
-        <circle
-            cx="520"
-            cy="340"
-            r="8"
-            fill="#E0B96B"/>
-
-    </svg>
-
-</section>
-
-<section class="benchmark">
-
-    <h2>Benchmark Mundial</h2>
-
-    <div class="cards" data-slides data-label="Benchmark mundial">
-
-        <div class="card" data-motion="card" data-slide>
-            <h3>Extime Rewards</h3>
-            <p>Airport Retail Ecosystem</p>
-        </div>
-
-        <div class="card" data-motion="card" data-slide>
-            <h3>Heathrow Rewards</h3>
-            <p>Earn & Burn Program</p>
-        </div>
-
-        <div class="card" data-motion="card" data-slide>
-            <h3>Changi Rewards</h3>
-            <p>Omnichannel Loyalty Platform</p>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="phone-section">
-
-    <h2>Club Beneficios</h2>
-
-    <div id="phone">
-
-        <img src="assets/phone.png" alt="Club Beneficios">
-
-    </div>
-
-</section>
-
-<section class="closing">
-
-    <h1>
-        El aeropuerto ya no es un destino
-    </h1>
-
-    <h1 class="gold">
-        Es una plataforma
-    </h1>
-
-</section>
-
-<script defer src="app.js"></script>
+js/app.jsscript>
 
 </body>
 </html>
+`
