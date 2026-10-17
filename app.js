@@ -13,7 +13,15 @@ function showScene(index){
     runAnimation(index);
 }
 
+const reducedMotion =
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 function animateCounter(element,target){
+
+    if(reducedMotion){
+        element.textContent = target.toLocaleString("es-CL");
+        return;
+    }
 
     const counter = {
         value:0
@@ -65,19 +73,6 @@ function runAnimation(index){
             break;
 
         case 2:
-
-            gsap.fromTo(
-                ".world-map",
-                {
-                    scale:1.1
-                },
-                {
-                    scale:1,
-                    duration:.6,
-                    ease:"power1.out"
-                }
-            );
-
 
             break;
 
