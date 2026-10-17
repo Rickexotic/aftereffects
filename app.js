@@ -1,26 +1,162 @@
-const slides = document.querySelectorAll(".slide");
+const scenes = document.querySelectorAll(".scene");
 
-let current = 0;
+let currentScene = 0;
 
-function showSlide(index) {
+function showScene(index){
 
-    slides.forEach(slide => {
-        slide.classList.remove("active");
+    scenes.forEach(scene=>{
+        scene.classList.remove("active");
     });
 
-    slides[index].classList.add("active");
+    scenes[index].classList.add("active");
+
+    runAnimation(index);
 }
 
-showSlide(0);
+function animateCounter(element,target){
 
-setInterval(() => {
+    const counter = {
+        value:0
+    };
 
-    current++;
+    gsap.to(counter,{
+        value:target,
+        duration:4,
+        ease:"power2.out",
 
-    if (current >= slides.length) {
-        current = 0;
+        onUpdate(){
+
+            element.textContent =
+                Math.floor(counter.value)
+                .toLocaleString("es-CL");
+
+        }
+    });
+
+}
+
+function runAnimation(index){
+
+    gsap.killTweensOf("*");
+
+    switch(index){
+
+        case 0:
+
+            gsap.from("#scene1 h1",{
+                y:120,
+                opacity:0,
+                duration:1.8
+            });
+
+            gsap.from("#scene1 p",{
+                y:60,
+                opacity:0,
+                delay:.4,
+                duration:1.6
+            });
+
+            break;
+
+        case 1:
+
+            document.getElementById("counterNacional").textContent = "0";
+            document.getElementById("counterInternacional").textContent = "0";
+
+            animateCounter(
+                document.getElementById("counterNacional"),
+                18000000
+            );
+
+            animateCounter(
+                document.getElementById("counterInternacional"),
+                11000000
+            );
+
+            break;
+
+        case 2:
+
+            gsap.fromTo(
+                ".world-map",
+                {
+                    scale:1.15
+                },
+                {
+                    scale:1,
+                    duration:5,
+                    ease:"power1.out"
+                }
+            );
+
+            gsap.from(".overlay-text",{
+                y:50,
+                opacity:0,
+                duration:2
+            });
+
+            break;
+
+        case 3:
+
+            gsap.from("#scene4 h1",{
+                scale:.8,
+                opacity:0,
+                duration:2
+            });
+
+            break;
+
+        case 4:
+
+            gsap.from("#scene5 h1",{
+                y:80,
+                opacity:0,
+                duration:1.5
+            });
+
+            gsap.from("#scene5 h2",{
+                scale:.7,
+                opacity:0,
+                delay:.4,
+                duration:1.8
+            });
+
+            break;
+
     }
 
-    showSlide(current);
+}
 
-}, 3000);
+showScene(0);
+
+const timeline = gsap.timeline({
+    repeat:-1
+});
+
+timeline
+
+.to({},{
+    duration:6,
+    onComplete:()=>showScene(1)
+})
+
+.to({},{
+    duration:6,
+    onComplete:()=>showScene(2)
+})
+
+.to({},{
+    duration:6,
+    onComplete:()=>showScene(3)
+})
+
+.to({},{
+    duration:6,
+    onComplete:()=>showScene(4)
+})
+
+.to({},{
+    duration:6,
+    onComplete:()=>showScene(0)
+});
