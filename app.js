@@ -37,8 +37,7 @@ function animateCounter(element,target){
 
 function runAnimation(index){
 
-    gsap.killTweensOf("*");
-
+  
     switch(index){
 
         case 0:
