@@ -1,146 +1,218 @@
 *{
     margin:0;
     padding:0;
-  * box-sizing:border-box;
+    box-sizing:border-box;
 }
 
+html,
 body{
- *  font-family:'Segoe UI',sans-seri*;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:"Segoe UI",sans-serif;
     background:#020915;
-    over*low:hidden;
 }
 
 #presentation{
-    *idth:100vw;
+    position:relative;
+    width:100vw;
     height:100vh;
-    *osition:relative;
 }
 
 .scene{
-    p*sition:absolute;
+    position:absolute;
     inset:0;
 
-   *display:flex;
-    align-items:cent*r;
+    display:flex;
     justify-content:center;
+    align-items:center;
 
-  * opacity:0;
-    visibility:hidden;*
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+
     background:
-    radial-gradie*t(circle at center,
-    #08264a,
- *  #020915);
-
-    transition:all 1.*s ease;
+        radial-gradient(
+            circle at center,
+            #0b2f57,
+            #020915
+        );
 }
 
 .scene.active{
-    opac*ty:1;
+    opacity:1;
     visibility:visible;
 }
 
-.*ontent{
+.content{
+    width:85%;
+    max-width:1400px;
     text-align:center;
-   *width:80%;
+    z-index:5;
+    position:relative;
+}
+
+.hero-video{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.35;
 }
 
 h1{
-    color:white;*    font-size:clamp(40px,6vw,90px)*
+    color:white;
+
+    font-size:
+        clamp(40px,6vw,90px);
 
     font-weight:700;
 
-    text-t*ansform:uppercase;
+    line-height:1.1;
 
-    text-shado*:
-    0 0 20px #00d4ff,
-    0 0 60*x #00d4ff;
+    text-shadow:
+        0 0 20px #00d4ff,
+        0 0 60px #00d4ff;
 }
 
 h2{
-    margin-top:2*px;
+    margin-top:25px;
 
-    color:#58d5ff;
+    color:#7fe5ff;
 
-    font*size:clamp(30px,4vw,60px);
+    font-size:
+        clamp(28px,4vw,58px);
 
-*   letter-spacing:4px;
+    letter-spacing:4px;
+
+    text-shadow:
+        0 0 10px #00d4ff;
 }
 
 p{
-    m*rgin-top:20px;
+    margin-top:25px;
 
     color:white;
 
-*   font-size:28px;
+    font-size:
+        clamp(18px,2vw,34px);
 
-    opacity:.9*
+    opacity:.95;
 }
 
 .counter-wrapper{
-    display:*lex;
-    gap:150px;
+    display:flex;
+    justify-content:center;
+    gap:120px;
 }
 
-.counter-bl*ck{
+.counter-block{
     text-align:center;
 }
 
-.cou*ter{
-    color:#7fe5ff;
-    font*size:90px;
+.counter{
+    color:#81ecff;
+
+    font-size:
+        clamp(60px,7vw,120px);
+
     font-weight:700;
 
- *  text-shadow:
-   *0 0 15px #00d4ff,
-    * 0 50px #00d4ff;
+    text-shadow:
+        0 0 15px #00d4ff,
+        0 0 50px #00d4ff;
 }
 
-.counter-block*span{
+.counter-block span{
+    display:block;
+
+    margin-top:15px;
+
     color:white;
-    font*size:28px;
+
+    font-size:24px;
 }
 
 .image-scene{
-   *overflow:hidden;
+    overflow:hidden;
 }
 
-.world-map*
-    width:100%;
-    height:100%;
-*   object-fit:cover;
-
-    filter:
-*   brightness*1.1)
-*   saturate(1.3);
-}
-
-.overlay-text*
+.world-map{
     position:absolute;
 
-    color*white;
+    inset:0;
 
-    font-size:72px;
-    fo*t-weight:700;
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transform:scale(1);
+
+    filter:
+        brightness(.75)
+        saturate(1.3);
+}
+
+.image-scene::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            rgba(0,0,0,.1),
+            rgba(0,0,0,.7)
+        );
+
+    z-index:1;
+}
+
+.overlay-text{
+    position:relative;
+
+    z-index:5;
+
+    color:white;
+
+    font-size:
+        clamp(40px,5vw,80px);
+
+    font-weight:700;
 
     text-shadow:
-  * 0 0 20px #00d4ff,
-    0 0 60px #0*d4ff;
+        0 0 20px #00d4ff,
+        0 0 60px #00d4ff;
+}
+
+#scene4 h1{
+    font-size:
+        clamp(36px,4.5vw,72px);
+
+    line-height:1.2;
 }
 
 @media(max-width:768px){
-*    .counter-wrapper{
-        flex*direction:column;
-        gap:60px*
+
+    .counter-wrapper{
+        flex-direction:column;
+        gap:60px;
     }
 
-    .counter{
-        font*size:60px;
+    h1{
+        font-size:42px;
     }
 
-    .overlay-tex*{
-        font-size:40px;
-        *adding:20px;
-        text-align:ce*ter;
+    .overlay-text{
+        padding:20px;
     }
 
 }
