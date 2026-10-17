@@ -1,9 +1,6 @@
 const scenes = document.querySelectorAll(".scene");
 
 let currentScene = 0;
-let countersAnimated = false;
-
-//------------------------------------------------
 
 function showScene(index){
 
@@ -13,15 +10,14 @@ function showScene(index){
 
     scenes[index].classList.add("active");
 
-    animateScene(index);
-
+    runAnimation(index);
 }
-
-//------------------------------------------------
 
 function animateCounter(element,target){
 
-    let counter = {value:0};
+    const counter = {
+        value:0
+    };
 
     gsap.to(counter,{
         value:target,
@@ -31,40 +27,41 @@ function animateCounter(element,target){
         onUpdate(){
 
             element.textContent =
-            Math.floor(counter.value)
-            .toLocaleString("es-CL");
+                Math.floor(counter.value)
+                .toLocaleString("es-CL");
 
         }
     });
 
 }
 
-//------------------------------------------------
+function runAnimation(index){
 
-function animateScene(index){
+    gsap.killTweensOf("*");
 
-    if(index===0){
+    switch(index){
 
-        gsap.from("#scene1 h1",{
-            opacity:0,
-            y:80,
-            duration:1.5
-        });
+        case 0:
 
-        gsap.from("#scene1 p",{
-            opacity:0,
-            y:40,
-            delay:.4,
-            duration:1.2
-        });
+            gsap.from("#scene1 h1",{
+                y:120,
+                opacity:0,
+                duration:1.8
+            });
 
-    }
+            gsap.from("#scene1 p",{
+                y:60,
+                opacity:0,
+                delay:.4,
+                duration:1.6
+            });
 
-    if(index===1){
+            break;
 
-        if(!countersAnimated){
+        case 1:
 
-            countersAnimated = true;
+            document.getElementById("counterNacional").textContent = "0";
+            document.getElementById("counterInternacional").textContent = "0";
 
             animateCounter(
                 document.getElementById("counterNacional"),
@@ -76,66 +73,90 @@ function animateScene(index){
                 11000000
             );
 
-        }
+            break;
 
-    }
+        case 2:
 
-    if(index===2){
+            gsap.fromTo(
+                ".world-map",
+                {
+                    scale:1.15
+                },
+                {
+                    scale:1,
+                    duration:5,
+                    ease:"power1.out"
+                }
+            );
 
-        gsap.from(".world-map",{
-            scale:1.2,
-            opacity:0,
-            duration:3
-        });
+            gsap.from(".overlay-text",{
+                y:50,
+                opacity:0,
+                duration:2
+            });
 
-        gsap.from(".overlay-text",{
-            y:60,
-            opacity:0,
-            duration:2
-        });
+            break;
 
-    }
+        case 3:
 
-    if(index===3){
+            gsap.from("#scene4 h1",{
+                scale:.8,
+                opacity:0,
+                duration:2
+            });
 
-        gsap.from("#scene4 h1",{
-            opacity:0,
-            scale:.8,
-            duration:2
-        });
+            break;
 
-    }
+        case 4:
 
-    if(index===4){
+            gsap.from("#scene5 h1",{
+                y:80,
+                opacity:0,
+                duration:1.5
+            });
 
-        gsap.from("#scene5 h1",{
-            opacity:0,
-            y:60,
-            duration:1.5
-        });
+            gsap.from("#scene5 h2",{
+                scale:.7,
+                opacity:0,
+                delay:.4,
+                duration:1.8
+            });
 
-        gsap.from("#scene5 h2",{
-            opacity:0,
-            scale:.7,
-            delay:.5,
-            duration:1.5
-        });
+            break;
 
     }
 
 }
 
-//------------------------------------------------
-
 showScene(0);
 
-const master = gsap.timeline({
+const timeline = gsap.timeline({
     repeat:-1
 });
 
-master
-.to({}, {duration:6, onComplete:()=>showScene(1)})
-.to({}, {duration:6, onComplete:()=>showScene(2)})
-.to({}, {duration:6, onComplete:()=>showScene(3)})
-.to({}, {duration:6, onComplete:()=>showScene(4)})
-.to({}, {duration:6, onComplete:()=>showScene(0)});
+timeline
+
+.to({},{
+    duration:6,
+    onComplete:()=>showScene(1)
+})
+
+.to({},{
+    duration:6,
+    onComplete:()=>showScene(2)
+})
+
+.to({},{
+    duration:6,
+    onComplete:()=>showScene(3)
+})
+
+.to({},{
+    duration:6,
+    onComplete:()=>showScene(4)
+})
+
+.to({},{
+    duration:6,
+    onComplete:()=>showScene(0)
+});
