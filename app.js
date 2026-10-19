@@ -143,7 +143,7 @@ const timeline = gsap.timeline({
 timeline
 
 .to({},{
-    duration:1.8,
+    duration:2.0,
     onComplete:()=>showScene(1)
 })
 
@@ -158,7 +158,7 @@ timeline
 })
 
 .to({},{
-    duration:1.8,
+    duration:2.8,
     onComplete:()=>showScene(4)
 })
 
