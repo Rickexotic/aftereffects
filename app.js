@@ -29,7 +29,7 @@ function animateCounter(element,target){
 
     gsap.to(counter,{
         value:target,
-        duration:1.2,
+        duration:1.0,
         ease:"power2.out",
 
         onUpdate(){
